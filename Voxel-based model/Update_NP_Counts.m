@@ -1,0 +1,9 @@
+NP_Domain_Temp = NP_Domain; %Store current number of nanoparticles in each voxel
+NP_Domain = NP_Domain - number_Down_Events - number_Left_x_Events - number_Right_x_Events - number_Left_y_Events - number_Right_y_Events - number_Up_Events - number_Bind_Events; %Remove nanoparticles corresponding to transition events
+NP_Domain(index_Down) = NP_Domain(index_Down) + number_Down_Events;             %Update number of nanoparticles via transitions down
+NP_Domain(index_Left_x) = NP_Domain(index_Left_x) + number_Left_x_Events;       %Update number of nanoparticles via transitions left (x)
+NP_Domain(index_Right_x) = NP_Domain(index_Right_x) + number_Right_x_Events;    %Update number of nanoparticles via transitions right (x)
+NP_Domain(index_Left_y) = NP_Domain(index_Left_y) + number_Left_y_Events;       %Update number of nanoparticles via transitions left (y)
+NP_Domain(index_Right_y) = NP_Domain(index_Right_y) + number_Right_y_Events;    %Update number of nanoparticles via transitions right (y)
+NP_Domain(index_Up) = NP_Domain(index_Up) + number_Up_Events;                   %Update number of nanoparticles via transitions up
+NPs_per_Cell = NPs_per_Cell + number_Bind_Events_Scaled(bottom_Indices);        %Update number of nanoparticles per cell via binding events
